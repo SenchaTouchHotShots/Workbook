@@ -8,9 +8,15 @@ Ext.define("Workbook.view.Main", {
             docked : 'top',
             items : [
                 {
-                    text : 'Add',
-                    align : 'left',
-                    id: 'addButton'
+                    text : 'Add Book',
+                    align : 'right',
+                    id: 'addBookButton'
+                },
+                {
+                    text : 'Add Note',
+                    align : 'right',
+                    id: 'addNoteButton',
+                    hidden: true
                 }
             ]
         },
