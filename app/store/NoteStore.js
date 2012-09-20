@@ -7,7 +7,6 @@ Ext.define('Workbook.store.NoteStore', {
 
     config: {
         model: 'Workbook.model.Note',
-        autoLoad: true,
         storeId: 'NoteStore',
         autoLoad: false,
         proxy: {

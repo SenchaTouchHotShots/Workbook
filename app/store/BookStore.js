@@ -9,7 +9,6 @@ Ext.define('Workbook.store.BookStore', {
         model: 'Workbook.model.Book',
         autoLoad: true,
         storeId: 'BookStore',
-        autoLoad: true,
         proxy: {
             type: 'localstorage',
             id  : 'books'

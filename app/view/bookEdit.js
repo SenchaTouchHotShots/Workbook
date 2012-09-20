@@ -20,26 +20,28 @@ Ext.define('Workbook.view.bookEdit', {
             {
                 xtype: 'hiddenfield',
                 id: 'bookID',
-                name: 'bookID',
+                name: 'id',
                 value: 0
             },
             {
                 xtype: 'button',
                 margin: 8,
+                id: 'saveBookButton',
                 ui: 'confirm',
-                text: 'Save',
+                text: 'Save Book',
                 handler: function() {
                     var form = this.up('formpanel');
                     var store = Ext.getStore('BookStore');
                     var values = form.getValues();
-                    if(values.bookID > 0) {
-                        var index = store.find('bookID', values.bookID);
+                    if(values.id > 0) {
+                        var index = store.find('id', values.id);
                         var record = store.getAt(index);
                         record.set(values);
                     } else {
-                        var record = Ext.ModelMgr.create(form.getValues(), 'Workbook.model.Book');
+                        delete values.id;
+                        var record = Ext.ModelMgr.create(values, 'Workbook.model.Book');
                     }
-                    console.log(store);
+
                     store.add(record);
                     store.sync();
                     var main = this.up('navigationview');

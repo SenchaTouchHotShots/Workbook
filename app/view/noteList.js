@@ -1,15 +1,13 @@
 Ext.define('Workbook.view.noteList', {
-    extend: 'Ext.dataview.List',
+    extend: 'Ext.dataview.DataView',
     config: {
-        id: 'NoteList',
+        id: 'noteList',
         itemId: 'noteList',
-        itemTpl: [
-            '<div class="noteTitle">{title}<div class="noteMeta">{dateModified:date("M j, Y, g:i a")}</div>'
-        ],
+        styleHtmlContent: true,
+        scrollable: true,
+        itemTpl: '<img src="/resources/icons/note.png" /><h4>{title}</h4><h5>{dateModified:date("m/d/Y, g:i a")}</h5>',
         store: 'NoteStore',
-        onItemDisclosure: false,
         emptyText: 'You don\'t have any Notes in this Workbook. Click the Add button at the top of your screen to add a new Note to the Workbook',
-        preventSelectionOnDisclose: false,
         title: 'Notes For'
     }
 });
