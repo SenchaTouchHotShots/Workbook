@@ -26,6 +26,9 @@ Ext.define('Workbook.controller.Book', {
             bookList: {
                 select: 'onBookSelect'
             },
+            noteList: {
+                select: 'onNoteSelect'
+            },
             main: {
                 back: 'onBackClicked'
             }
@@ -75,5 +78,11 @@ Ext.define('Workbook.controller.Book', {
     },
     onImageSelectButtonTap: function(button, event, options) {
         console.log(button, event, options);
+    },
+    onNoteSelect: function(dataview, record, options) {
+        console.log(dataview, record, options);
+        var noteDetails = Ext.create('Workbook.view.noteDetails');
+        this.getMain().push(noteDetails);
+        noteDetails.setRecord(record);
     }
 });
