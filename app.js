@@ -8,11 +8,13 @@ Ext.application({
     name: 'Workbook',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox', 'Ext.data.proxy.LocalStorage', 'Ext.field.Hidden', 'Ext.Img', 'Ext.device.Camera'
     ],
 
-    views: ['Main'],
+    views: ['Main', 'noteDetails', 'noteList', 'bookEdit', 'noteEdit'],
     controllers: ['Book'],
+    stores: ['NoteStore', 'BookStore'],
+    models: ['Note', 'Book'],
     icon: {
         57: 'resources/icons/Icon.png',
         72: 'resources/icons/Icon~ipad.png',
