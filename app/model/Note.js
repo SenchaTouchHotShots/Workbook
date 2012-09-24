@@ -1,7 +1,6 @@
 Ext.define('Workbook.model.Note', {
     extend: 'Ext.data.Model',
     config: {
-        identifier: 'sequential',
         fields: [
             {
                 name: 'id',
