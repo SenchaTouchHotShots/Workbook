@@ -78,6 +78,17 @@ Ext.define('Workbook.controller.Book', {
     },
     onImageSelectButtonTap: function(button, event, options) {
         console.log(button, event, options);
+        var imageView = Ext.getCmp('imageView');
+        var imageField = Ext.getCmp('imageField');
+        Ext.device.Camera.capture({
+            success: function(image) {
+                imageView.setSrc(image);
+                imageField.setValue(image);
+            },
+            quality: 100,
+            destination: 'data'
+        });
+        console.log(image);
     },
     onNoteSelect: function(dataview, record, options) {
         console.log(dataview, record, options);

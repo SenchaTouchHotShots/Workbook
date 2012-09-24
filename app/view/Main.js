@@ -32,7 +32,7 @@ Ext.define("Workbook.view.Main", {
                 emptyText: 'You don\'t have any Workbooks. Click the Add button at the top of your screen to add a new Workbook',
                 store: 'BookStore',
                 id: 'bookList',
-                itemTpl: '<img src="/resources/icons/book.png" /><h4>{title}</h4>'
+                itemTpl: '<img src="resources/icons/book.png" /><h4>{title}</h4>'
             }
         ]
     }

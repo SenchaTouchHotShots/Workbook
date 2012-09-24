@@ -15,6 +15,17 @@ Ext.define('Workbook.view.noteEdit', {
                 id: 'imageSelectButton',
                 width: 220,
                 style: 'margin-top: 10px; margin-right:auto; margin-left:auto; margin-bottom: 15px;'
+            }, {
+                xtype: 'image',
+                id: 'imageView',
+                width: 200,
+                height: 200
+            },
+            {
+                xtype: 'hiddenfield',
+                id: 'imageField',
+                name: 'image',
+                value: ''
             },
             {
                 xtype: 'textfield',
