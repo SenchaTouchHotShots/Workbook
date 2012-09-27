@@ -16,7 +16,7 @@ Ext.define('Workbook.view.noteEdit', {
                 width: 220,
                 style: 'margin-top: 10px; margin-right:auto; margin-left:auto; margin-bottom: 15px;'
             }, {
-                xtype: 'image',
+                xtype: 'container',
                 id: 'imageView',
                 width: 200,
                 height: 200
@@ -36,14 +36,12 @@ Ext.define('Workbook.view.noteEdit', {
             {
                 xtype: 'hiddenfield',
                 id: 'bookID',
-                name: 'bookID',
-                value: 0
+                name: 'bookID'
             },
             {
                 xtype: 'hiddenfield',
                 id: 'noteID',
-                name: 'id',
-                value: 0
+                name: 'id'
             },
             {
                 xtype: 'textareafield',
@@ -69,7 +67,6 @@ Ext.define('Workbook.view.noteEdit', {
                         var date = new Date();
                         record.set('dateModified', date);
                     } else {
-                        delete values.id;
                         var record = Ext.ModelMgr.create(values, 'Workbook.model.Note');
                         var date = new Date();
                         record.set('dateModified', date);
@@ -79,6 +76,7 @@ Ext.define('Workbook.view.noteEdit', {
                     store.sync();
                     var main = this.up('navigationview');
                     main.pop(form);
+                    Ext.getCmp('noteList').deselectAll();
                 }
             },
             {

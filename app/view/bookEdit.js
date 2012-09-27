@@ -20,8 +20,7 @@ Ext.define('Workbook.view.bookEdit', {
             {
                 xtype: 'hiddenfield',
                 id: 'bookID',
-                name: 'id',
-                value: 0
+                name: 'id'
             },
             {
                 xtype: 'button',
@@ -38,7 +37,6 @@ Ext.define('Workbook.view.bookEdit', {
                         var record = store.getAt(index);
                         record.set(values);
                     } else {
-                        delete values.id;
                         var record = Ext.ModelMgr.create(values, 'Workbook.model.Book');
                     }
 

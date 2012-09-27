@@ -4,6 +4,6 @@ Ext.define('Workbook.view.noteDetails', {
     config: {
         layout: 'fit',
         scrollable: {direction: 'vertical', directionLock: true},
-        tpl: '<h1>{title}</h1><img src="data:image/png;base64,{image}" /><h5>{date}</h5><div class="notes">{notes}</div>'
+        tpl: '<h1>{title}</h1><img src="data:image/png;base64,{image}" width='+Ext.Viewport.getWindowWidth()+'/><h5>{date}</h5><div class="notes">{notes}</div>'
     }
 });

@@ -3,7 +3,7 @@ Ext.define('Workbook.controller.Book', {
     config: {
         stores: ['BookStore', 'NoteStore'],
         models: ['Book', 'Note'],
-        views: ['bookEdit', 'noteEdit'],
+        views: ['bookEdit', 'noteEdit', 'noteList', 'bookList'],
         refs: {
             bookList: '#bookList',
             noteList: '#noteList',
@@ -39,15 +39,15 @@ Ext.define('Workbook.controller.Book', {
         this.getMain().push(bookForm);
     },
     onBookSelect: function(dataview, record, options) {
-        var noteList = Ext.create('Workbook.view.noteList');
-        var bookID = record.getData().id;
+        console.log(dataview, record, options);
+        var noteList = Ext.create('Workbook.view.noteList', {title: record.get('title')});
+        var bookID = record.get('id');
         this.getMain().push(noteList);
         this.getAddNoteButton().show();
         this.getAddBookButton().hide();
         var noteStore = noteList.getStore();
         noteStore.filter("bookID", bookID);
         noteStore.load();
-        noteList.setTitle(record.getData().title);
         noteList.bookID = bookID;
     },
     onBackClicked: function(button, options) {
@@ -71,8 +71,7 @@ Ext.define('Workbook.controller.Book', {
             'Workbook.model.Note', {
                 title: '',
                 note: '',
-                bookID: this.getNoteList().bookID,
-                id: 0
+                bookID: this.getNoteList().bookID
             });
         noteForm.setRecord(record);
     },
@@ -82,13 +81,12 @@ Ext.define('Workbook.controller.Book', {
         var imageField = Ext.getCmp('imageField');
         Ext.device.Camera.capture({
             success: function(image) {
-                imageView.setSrc(image);
+                imageView.setHtml('<img src="data:image/png;base64,'+image+'" width=200px height=200px />');
                 imageField.setValue(image);
             },
             quality: 100,
             destination: 'data'
         });
-        console.log(image);
     },
     onNoteSelect: function(dataview, record, options) {
         console.log(dataview, record, options);

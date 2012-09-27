@@ -11,7 +11,7 @@ Ext.application({
         'Ext.MessageBox', 'Ext.data.proxy.LocalStorage', 'Ext.field.Hidden', 'Ext.Img', 'Ext.device.Camera'
     ],
 
-    views: ['Main', 'noteDetails', 'noteList', 'bookEdit', 'noteEdit'],
+    views: ['Main', 'noteDetails', 'noteList', 'bookEdit', 'noteEdit', 'bookList'],
     controllers: ['Book'],
     stores: ['NoteStore', 'BookStore'],
     models: ['Note', 'Book'],
