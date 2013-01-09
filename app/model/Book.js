@@ -4,7 +4,7 @@ Ext.define('Workbook.model.Book', {
         fields: [
             {
                 name: 'id',
-                type: 'int'
+                type: 'string'
             },
             {
                 name: 'title',

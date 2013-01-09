@@ -4,11 +4,11 @@ Ext.define('Workbook.model.Note', {
         fields: [
             {
                 name: 'id',
-                type: 'int'
+                type: 'string'
             },
             {
                 name: 'bookID',
-                type: 'int'
+                type: 'string'
             },
             {
                 name: 'title',
